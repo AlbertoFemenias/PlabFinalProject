@@ -39,7 +39,7 @@ public class SellerController {
         return sellerService.listAllSellers();
     }
 
-    @RequestMapping(value = "/seller/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_ATOM_XML_VALUE)
+    @RequestMapping(value = "/seller/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Seller getByPublicId(@PathVariable("id") Integer publicId) {
         return sellerService.getSellerById(publicId);

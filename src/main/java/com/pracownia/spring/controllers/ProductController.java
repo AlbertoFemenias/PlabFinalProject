@@ -25,6 +25,7 @@ import java.util.UUID;
 /**
  * Product controller.
  */
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -79,7 +80,7 @@ public class ProductController {
      */
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ResponseEntity<Product> create(@RequestBody @Valid @NotNull Product product) {
-        product.setProductId(UUID.randomUUID().toString());
+        //product.setProductId(UUID.randomUUID().toString());
         productService.saveProduct(product);
         return ResponseEntity.ok().body(product);
     }

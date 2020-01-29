@@ -1,5 +1,6 @@
 package com.pracownia.spring.controllers;
 
+import com.pracownia.spring.entities.Manufacturer;
 import com.pracownia.spring.entities.Product;
 import com.pracownia.spring.entities.Seller;
 import com.pracownia.spring.services.ProductService;
@@ -39,7 +40,7 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value = "generateModel", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = "/gen", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String generateModel() {
 
         LocalDateTime localtDateAndTime = LocalDateTime.now();

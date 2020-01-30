@@ -6,6 +6,7 @@ import com.pracownia.spring.services.ProductService;
 import com.pracownia.spring.services.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Homepage controller.
@@ -42,12 +46,12 @@ public class IndexController {
         ZoneId zoneId = ZoneId.systemDefault();
         ZonedDateTime dateAndTime  = ZonedDateTime.of(localtDateAndTime, zoneId);
 
-        Product p1 = new Product(135,"206GTI", new BigDecimal(1050), dateAndTime.plusDays(7));
-        Product p2 = new Product(150,"307HDI", new BigDecimal(1200), dateAndTime.plusDays(7));
-        Product p3 = new Product(170,"323i", new BigDecimal(1330), dateAndTime.plusDays(7));
+        Product p1 = new Product(UUID.randomUUID().toString(),"Jajko", new BigDecimal(2.50), dateAndTime.plusDays(7));
+        Product p2 = new Product(UUID.randomUUID().toString(),"Masło", new BigDecimal(3.50), dateAndTime.plusDays(7));
+        Product p3 = new Product(UUID.randomUUID().toString(),"Mąka", new BigDecimal(1.50), dateAndTime.plusDays(7));
 
-        Seller seller = new Seller("Peugeot", "France", Arrays.asList(p1.getName(), p2.getName(), p3.getName()));
-        Seller seller2 = new Seller("BMW", "Germany", Arrays.asList(p1.getName(), p2.getName()));
+        Seller seller = new Seller("Biedra", "Poznan", Arrays.asList(p1.getProductId(), p2.getProductId(), p3.getProductId()));
+        Seller seller2 = new Seller("Lidl", "Krosno", Arrays.asList(p1.getProductId(), p2.getProductId()));
 
         p1.getSellers().add(seller);
         p2.getSellers().add(seller);

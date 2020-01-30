@@ -1,9 +1,13 @@
 package com.pracownia.spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,13 +21,13 @@ public class Product {
     private Integer id;
 
     @Column
-    private int hp;
+    private String productId;
 
     @Column
     private String name;
 
     @Column
-    private BigDecimal weight;
+    private BigDecimal price;
 
     @Column
     private ZonedDateTime bestBeforeDate;
@@ -36,10 +40,10 @@ public class Product {
 
     }
 
-    public Product(int hp, String name, BigDecimal weight, ZonedDateTime date) {
-        this.hp = hp;
+    public Product(String productId, String name, BigDecimal price, ZonedDateTime date) {
+        this.productId = productId;
         this.name = name;
-        this.weight = weight;
+        this.price = price;
         this.bestBeforeDate = date;
     }
 
@@ -59,20 +63,20 @@ public class Product {
         this.id = id;
     }
 
-    public int getHp() {
-        return hp;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public BigDecimal getWeight() {
-        return weight;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public ZonedDateTime getBestBeforeDate() {

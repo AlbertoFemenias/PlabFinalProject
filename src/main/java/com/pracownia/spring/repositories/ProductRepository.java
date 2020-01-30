@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Integer>, PagingAndSortingRepository<Product, Integer> {
 
-    Product findByName(String name);
+    Product findByProductId(String productId);
 
     @Query("select count(*) from Product p where p.id = ?1")
     Integer checkIfExist(Integer id);

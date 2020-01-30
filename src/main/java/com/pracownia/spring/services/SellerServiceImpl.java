@@ -7,7 +7,6 @@ import com.pracownia.spring.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -58,7 +57,7 @@ public class SellerServiceImpl implements SellerService {
             double sum = 0.0;
             List<Product> products = sellerRepository.getProductsById2(s.getId());
             for(Product pid : products) {
-                sum += pid.getPrice().doubleValue();
+                sum += pid.getWeight().doubleValue();
             }
             if (sum > max) {
                 max = sum;

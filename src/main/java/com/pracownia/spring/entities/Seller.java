@@ -1,8 +1,5 @@
 package com.pracownia.spring.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +17,7 @@ public class Seller {
     private String name;
 
     @Column
-    private String city;
+    private String country;
 
     @ElementCollection
     @CollectionTable(name = "products")
@@ -35,9 +32,9 @@ public class Seller {
 
     }
 
-    public Seller(String name, String city, List<String> products) {
+    public Seller(String name, String country, List<String> products) {
         this.name = name;
-        this.city = city;
+        this.country = country;
         this.products = products;
     }
 
@@ -57,12 +54,12 @@ public class Seller {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public List<String> getProducts() {
